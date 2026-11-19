@@ -1,30 +1,40 @@
+print("Hola soy calculín y puedo: sumar(+), restar(-), dividir(/) y multiplicar(*)...")
+
 while True:
-    print(
-        "Soy una calculadora y puedo: sumar(+), restar(-), dividir(/) y multiplicar(*) dos números..."
-    )
-    num1 = float(input("Bien, dame un número:"))
-    num2 = float(input("Ahora el otro:"))
+    try:
+        num1 = float(input("Bien, dame un número:"))
+    except ValueError:
+        print("Dije nú-me-ro.")
+        continue
 
-    while True:
-        aritmetica = str(input("¿Que operación quieres?:"))
+    try:
+        num2 = float(input("Ahora el otro:"))
+    except ValueError:
+        print("Dije nú-me-ro.")
+        continue
 
-        if aritmetica == "+":
-            print(num1 + num2)
+    aritmetica = str(input("¿Que operación quieres(+),(-),(*),(/):?"))
 
-        elif aritmetica == "-":
-            print(num1 - num2)
-
-        elif aritmetica == "/":
-            print(num1 / num2)
-
-        elif aritmetica == "*":
-            print(num1 * num2)
-
+    if aritmetica == "+":
+        print(num1 + num2)
+    elif aritmetica == "-":
+        print(num1 - num2)
+    elif aritmetica == "/":
+        if num2 == 0:
+            print("ERROR: No se puede dividir x 0 me da ansiedad.")
         else:
-            print(
-                "Por favor escribe uno de los signos indicados para continuar [(+), (-), (/) o (*)]."
-            )
-            break
+            print(num1 / num2)
+    elif aritmetica == "*":
+        print(num1 * num2)
+    else:
+        print("Error, sigue las instrucciones soy medio pelotudo")
+        break
 
-    input("Presiona cualquier tecla para continuar.")
-    break
+    salir_volver = input("Escribe ´S´ para continuar o ´N´ para salir:").upper()
+
+    if salir_volver == "N":
+        break
+    elif salir_volver == "S":
+        continue
+
+print("Adiós amigo te extrañaré...")
