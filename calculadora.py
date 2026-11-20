@@ -1,4 +1,21 @@
-print("Hola soy calculín y puedo: sumar(+), restar(-), dividir(/) y multiplicar(*)...")
+print("Hola soy calculín y puedo: sumar(+), restar(-), dividir(/) y multiplicar(*)")
+
+
+def adicion(num1, num2):
+    return num1 + num2
+
+
+def sustraccion(num1, num2):
+    return num1 - num2
+
+
+def multiplicacion(num1, num2):
+    return num1 * num2
+
+
+def division(num1, num2):
+    return num1 / num2
+
 
 while True:
     try:
@@ -13,28 +30,34 @@ while True:
         print("Dije nú-me-ro.")
         continue
 
-    aritmetica = str(input("¿Que operación quieres(+),(-),(*),(/):?"))
+    aritmetica = input("¿Que operación quieres(+),(-),(*),(/):?")
 
     if aritmetica == "+":
-        print(num1 + num2)
+        print(adicion(num1, num2))
+
     elif aritmetica == "-":
-        print(num1 - num2)
+        print(sustraccion(num1, num2))
+
     elif aritmetica == "/":
         if num2 == 0:
-            print("ERROR: No se puede dividir x 0 me da ansiedad.")
+            print("ERROR: No se puede dividir por CERO, me causa ansiedad.")
         else:
-            print(num1 / num2)
+            print(division(num1, num2))
+
     elif aritmetica == "*":
-        print(num1 * num2)
+        print(multiplicacion(num1, num2))
+
     else:
-        print("Error, sigue las instrucciones soy medio pelotudo")
-        break
+        print("ERROR: Sigue las instrucciones de operación.")
+        continue
 
     salir_volver = input("Escribe ´S´ para continuar o ´N´ para salir:").upper()
 
     if salir_volver == "N":
+        print("Adiós, te extrañaré...")
         break
     elif salir_volver == "S":
-        continue
-
-print("Adiós amigo te extrañaré...")
+        pass
+    else:
+        print("Llámame cuando aprendas a seguir instrucciones.")
+        break
